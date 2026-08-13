@@ -445,16 +445,20 @@ const scrollToContent = (elementId) => {
 }
 
 /* 상단 프로필/로그인 배지 위치 */
+
 .top-nav-bar {
   position: absolute !important;
   top: 20px !important;
   right: 20px !important;
   z-index: 100 !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .nav-auth-wrap {
   display: flex !important;
   align-items: center !important;
+  margin-left: 120px !important; 
 }
 
 .btn-nav-login {
