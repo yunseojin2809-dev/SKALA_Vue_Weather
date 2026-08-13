@@ -56,7 +56,7 @@ const handleLogin = () => {
           <input 
             type="text" 
             v-model="username" 
-            placeholder="아이디 입력 (예: admin)"
+            placeholder="아이디 입력 (예: skala)"
           />
         </div>
 
@@ -65,11 +65,11 @@ const handleLogin = () => {
           <input 
             type="password" 
             v-model="password" 
-            placeholder="비밀번호 입력"
+            placeholder="비밀번호 입력 (예: skala)"
           />
         </div>
 
-        <!-- 🌟 이용약관 동의 토글 스위치 🌟 -->
+        <!--  이용약관 동의 토글 스위치 -->
         <div class="agree-group">
           <span class="agree-text">이용약관 및 정보 제공에 동의합니다</span>
           <label class="toggle-switch">
@@ -89,7 +89,7 @@ const handleLogin = () => {
 </template>
 
 <style scoped>
-/* 🌟 화면 하단 하얗게 비는 현상 방지 (전체 풀화면 고정) 🌟 */
+
 .login-container {
   position: fixed;
   top: 0;

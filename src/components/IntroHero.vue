@@ -211,11 +211,16 @@ const scrollToContent = (elementId) => {
 }
 </script>
 
+<!-- IntroHero.vue 상단 Template 구역 -->
 <template>
   <div class="intro-container">
-    <!-- 상단 헤더 우측 유틸리티 영역 -->
+    <!-- 상단 헤더 우측 유틸리티 영역 (단위변경 + 로그인 배지) -->
     <div class="top-nav-bar">
-      <div class="nav-right">
+      <!-- 1. 단위 변경 버튼 컴포넌트 -->
+      <UnitToggler />
+
+      <!-- 2. 관제자 프로필 또는 로그인 버튼 -->
+      <div class="nav-auth-wrap">
         <button v-if="!authStore.isLoggedIn" class="btn-nav-login" @click="router.push('/login')">
           관제자 로그인 🔓
         </button>
