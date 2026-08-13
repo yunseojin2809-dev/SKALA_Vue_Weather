@@ -145,10 +145,8 @@ onMounted(() => {
   }
 
   if (window.L && mapContainer.value) {
-    // 지도 인스턴스 생성 및 기본 위치 설정
     const map = window.L.map(mapContainer.value).setView([36.3, 127.8], 7)
 
-    // 배경 지도 타일 레이어 종류 정의
     const darkMap = window.L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
       attribution: '&copy; CARTO'
@@ -166,14 +164,12 @@ onMounted(() => {
 
     darkMap.addTo(map)
 
-    // OpenWeatherMap 실시간 기상 레이어
     const API_KEY = '8964edc63b366d27b5b728b7976570b7'
 
     const windLayer = window.L.tileLayer(`https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${API_KEY}`)
     const precipitationLayer = window.L.tileLayer(`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${API_KEY}`)
     const cloudsLayer = window.L.tileLayer(`https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${API_KEY}`)
 
-    // 지도 선택 우측 상단 컨트롤러 추가
     const baseMaps = {
       '🌙 다크 테마': darkMap,
       '🛰️ 위성 지도': satelliteMap,
@@ -211,15 +207,10 @@ const scrollToContent = (elementId) => {
 }
 </script>
 
-<!-- IntroHero.vue 상단 Template 구역 -->
 <template>
   <div class="intro-container">
-    <!-- 상단 헤더 우측 유틸리티 영역 (단위변경 + 로그인 배지) -->
+    <!-- 상단 우측 관제자 프로필 및 로그인 영역 (App.vue 상단 네비바의 단위변환 버튼과 어우러지도록 배치) -->
     <div class="top-nav-bar">
-      <!-- 1. 단위 변경 버튼 컴포넌트 -->
-      <UnitToggler />
-
-      <!-- 2. 관제자 프로필 또는 로그인 버튼 -->
       <div class="nav-auth-wrap">
         <button v-if="!authStore.isLoggedIn" class="btn-nav-login" @click="router.push('/login')">
           관제자 로그인 🔓
@@ -251,7 +242,7 @@ const scrollToContent = (elementId) => {
 
         <h1 class="hero-title">
           Empowering Safety <br />
-          <span class="gradient-text">With Real-Time Weather </span>
+          <span class="gradient-text">With Real-Time Weather</span>
         </h1>
 
         <p class="hero-subtitle">
@@ -422,6 +413,9 @@ const scrollToContent = (elementId) => {
             <div class="info-card">
               <div class="info-icon">📡</div>
               <h3>관측소 맞춤형 자동 판별</h3>
+              <div class="formula-badge">
+                <code>riskOf(station) ➔ Type-Based Engine</code>
+              </div>
               <p class="card-desc">
                 전국 관측소 유형(산간·해안·도심)을 자동 식별하고, 해당 지역 특성에 맞는 위험도 엔진을 실시간으로 추적·갱신하여 정확한 재해 정보를 제공합니다.
               </p>
@@ -450,14 +444,17 @@ const scrollToContent = (elementId) => {
   background: #0f172a;
 }
 
-/* 상단 헤더 우측 로그인 버튼 바 */
+/* 상단 프로필/로그인 배지 위치 */
 .top-nav-bar {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 100 !important;
+}
+
+.nav-auth-wrap {
+  display: flex !important;
+  align-items: center !important;
 }
 
 .btn-nav-login {
@@ -471,6 +468,7 @@ const scrollToContent = (elementId) => {
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-nav-login:hover {
@@ -490,6 +488,7 @@ const scrollToContent = (elementId) => {
   font-size: 13px;
   color: #ffffff;
   backdrop-filter: blur(8px);
+  white-space: nowrap;
 }
 
 .btn-nav-logout {
@@ -501,6 +500,7 @@ const scrollToContent = (elementId) => {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-nav-logout:hover {
@@ -856,7 +856,6 @@ const scrollToContent = (elementId) => {
 .info-icon { font-size: 32px; margin-bottom: 12px; }
 .info-card h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
 
-/* 수식 강조 박스 및 설명 스타일 */
 .formula-badge {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -867,7 +866,7 @@ const scrollToContent = (elementId) => {
 }
 
 .formula-badge code {
-  color: #ff9f1c; /* 포인트 주황색 */
+  color: #ff9f1c;
   font-family: 'Fira Code', Consolas, monospace;
   font-size: 12px;
   font-weight: 700;
@@ -898,7 +897,6 @@ const scrollToContent = (elementId) => {
   z-index: 1;
 }
 
-/* Leaflet 우측 상단 컨트롤러 스타일 보정 */
 :deep(.leaflet-control-layers) {
   background: rgba(15, 23, 42, 0.9) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;

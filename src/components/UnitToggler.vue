@@ -16,16 +16,18 @@ const configStore = useConfigStore()
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 .unit-label {
   font-size: 13px;
-  color: #ffffff; /* 기존 회색(#94a3b8 등)을 #ffffff (흰색)으로 변경! */
+  color: #ffffff;
   font-weight: 600;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* 잘 보이도록 그림자 살짝 추가 */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 }
 .unit-btn {
   border: none;
-  background: var(--accent-blue);
+  background: var(--accent-blue, #0284c7);
   color: #ffffff;
   font-size: 11px;
   font-weight: 700;
@@ -33,6 +35,7 @@ const configStore = useConfigStore()
   border-radius: 100px;
   cursor: pointer;
   white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 .unit-btn:hover {
   opacity: 0.9;
