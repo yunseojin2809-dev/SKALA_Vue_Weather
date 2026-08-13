@@ -35,7 +35,7 @@ WEATHER-APP2/
     │   └── index.js              # 동적 라우트 매칭, Navigation Guard(로그인 접근 제어) 및 Catch-all 라우트
     │
     ├── stores/                   # Pinia 전역 상태 관리
-    │   ├── authStore.js          # 🌟 관제자 로그인 토큰, 유저 프로필 및 인증 상태 관리
+    │   ├── authStore.js          # 관제자 로그인 토큰, 유저 프로필 및 인증 상태 관리
     │   ├── configStore.js        # 온도 단위(섭씨/화씨) 전역 상태 및 변환 로직
     │   └── searchHistoryStore.js # 최근 검색어 기록 저장 및 관리
     │
@@ -62,7 +62,7 @@ WEATHER-APP2/
     │   └── WeatherDetailCard.vue # 상세 페이지용 확장 기상 리포트 카드
     │
     └── views/                    # 페이지 단위 화면 컴포넌트
-        ├── LoginView.vue         # 🌟 관제자 접근 권한 인증 및 이용약관 동의 로그인 화면 (`/login`)
+        ├── LoginView.vue         # 관제자 접근 권한 인증 및 이용약관 동의 로그인 화면 (`/login`)
         ├── NotFoundView.vue     # 404 예외 처리 페이지 (`/:pathMatch(.*)*`)
         ├── WeatherAboutView.vue  # 서비스 소개 및 시스템 알고리즘 아키텍처 페이지 (`/about`)
         ├── WeatherDetailView.vue # 관측소별 상세 기상 정보 동적 페이지 (`/weather/:cityId`)
