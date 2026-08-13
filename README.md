@@ -63,10 +63,10 @@ WEATHER-APP2/
     │
     └── views/                    # 페이지 단위 화면 컴포넌트
         ├── LoginView.vue         # 관제자 접근 권한 인증 및 이용약관 동의 로그인 화면 (`/login`)
-        ├── NotFoundView.vue     # 404 예외 처리 페이지 (`/:pathMatch(.*)*`)
+        ├── NotFoundView.vue      # 404 예외 처리 페이지 (`/:pathMatch(.*)*`)
         ├── WeatherAboutView.vue  # 서비스 소개 및 시스템 알고리즘 아키텍처 페이지 (`/about`)
         ├── WeatherDetailView.vue # 관측소별 상세 기상 정보 동적 페이지 (`/weather/:cityId`)
-        ├── WeatherHomeView.vue   # 🔒 관측소 목록 및 위험도 종합 관제 대시보드 화면 (`/dashboard`)
+        ├── WeatherHomeView.vue   # 관측소 목록 및 위험도 종합 관제 대시보드 화면 (`/dashboard`)
         └── WeatherIntroView.vue  # 서비스 소개 및 기상 개요 인트로 메인 화면 (`/intro`)
 
 ```
